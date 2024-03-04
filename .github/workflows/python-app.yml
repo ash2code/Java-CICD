@@ -35,7 +35,10 @@ jobs:
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
       - name: SonarQube Scan
         run: |
-          sonar-scanner \
+          docker run \
+            v "$(pwd):/usr/src" \
+            --network host \
+            sonarsource/sonar-scanner-cli \
             -Dsonar.projectKey=python-app \
             -Dsonar.sources=. \
             -Dsonar.host.url=http://3.95.10.232:9000 \
