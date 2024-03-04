@@ -38,8 +38,7 @@ jobs:
        run: 
          sonar-scanner \
         -Dsonar.projectKey=python-cicd \
-        -Dsonar.sources=. \
-        -Dsonar.host.url=http://http://44.201.135.0:9000 \
-        -Dsonar.token=sqp_97fcb661dbad72177e5b12bbba89a0ab15fcd123
+        -Dsonar.sources=. 
+       
         
     
