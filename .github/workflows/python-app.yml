@@ -34,11 +34,11 @@ jobs:
           # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
       - name: SonarQube Scan
-        uses: sonarsource/sonarqube-scan-action@master
-        with:
-          projectBaseDir: .
+        run: |
+          sonar-scanner \
+            -Dsonar.projectKey=python-app \
+            -Dsonar.sources=. \
+            -Dsonar.host.url=http://3.95.10.232:9000 \
+            -Dsonar.login=$SONAR_TOKEN
         env:
-          SONAR_PROJECT_KEY: python-app
-          SONAR_SOURCES: .
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
