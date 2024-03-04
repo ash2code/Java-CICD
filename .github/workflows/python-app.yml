@@ -36,7 +36,7 @@ jobs:
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@master
         with:
-          projectBaseDir: .
+          sonar.sources: .
           sonar.projectKey: sample-project
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
