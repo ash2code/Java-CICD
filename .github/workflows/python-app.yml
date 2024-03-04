@@ -36,7 +36,7 @@ jobs:
       - name: SonarQube Scan
         run: |
          sudo docker run \
-            v "$(pwd):/usr/src" \
+            jolly_bhaskara "$(pwd):/usr/src" \
             --network host \
             sonarsource/sonar-scanner-cli \
             -Dsonar.projectKey=python-app \
